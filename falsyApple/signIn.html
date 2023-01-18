@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignIn</title>
+    <link rel="stylesheet" href="./css_files/signin.css">
+</head>
+<body>
+    <div id="first">
+
+        <div  id="main">
+            <form >
+            <input type="email" placeholder="Enter email" id="email" required>
+           <br> <input type="password" placeholder="password" id="password" required>
+           <br><button id="submit">submit</button>
+           <div id="link">
+               <a href="./register.html">Not a Account click here!!!</a>
+              <a href="./index.html">Home</a>
+           </div>
+
+        </form>
+    </div>
+</div>
+</body>
+<script>
+   let formel=document.querySelector("form");
+  
+   formel.addEventListener("submit",(e)=>{
+    e.preventDefault();
+
+    let email=document.getElementById("email").value;
+    let pass=document.getElementById("password").value
+
+    let email1=JSON.parse(localStorage.getItem("Email"))||[];
+    let pass1 = JSON.parse(localStorage.getItem("Password"))||[];
+
+    if(email==email1 && pass==pass1){
+        window.location.href="index.html";  
+    }
+    else if(email!==email1){
+        alert("Incorrect email");
+    }
+    else if(pass!==pass1){
+        alert("Incorrect password")
+    }
+    else{
+        alert("incorrect credential");
+    }
+   })
+
+</script>
+</html>

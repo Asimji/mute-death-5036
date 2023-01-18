@@ -1,0 +1,88 @@
+*{
+    background-color: black;
+}
+#head{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-between;
+    margin:0 30px 30px 30px;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    position: sticky;
+    top: 0px;
+    text-decoration: none;
+    height: 50px;
+}
+#head img{
+    /* border: 2px solid red; */
+    width: 50px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    /* border:2px solid red; */
+}
+#head a{
+    text-decoration: none;
+    font-size: 10px;
+}
+
+#mid{
+    /* display: block; */
+    /* margin-left: 80px; */
+    /* border:2px solid red; */
+    /* height: 500px; */
+}
+#mid img{
+    width: 100%;
+}
+#phone{
+    /* border:2px solid red; */
+}
+#phone img{
+    width:100%
+}
+
+
+
+#table{
+    /* border:2px solid red; */
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-top: 30px;
+    gap: 15px;
+
+}
+
+#table div img{
+    width: 100%;
+}
+#content{
+    color: white;
+    /* border: 2px solid red; */
+    width: 1300px;
+     height: 200px;
+    margin: auto;
+      
+    /* font-size: 0.9cm; */
+    border-collapse: collapse;
+}
+
+
+#content thead tr{
+    text-align: left;
+    font-weight: bold;
+    /* border: 2px solid red; */
+    height: 100px;
+   margin: 20px;
+   
+}
+#content>tbody>tr {
+    /* border: 2px solid blue; */
+ width: 50px;
+    font-size:10px ;
+    color: cyan;
+    text-decoration: underline;
+
+}
