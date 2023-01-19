@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phones</title>
+    <style>
+        /* #main{
+            background-image: url("https://rukminim1.flixcart.com/image/416/416/xif0q/mobile/9/e/e/-original-imaghx9q5rvcdghy.jpeg?q=70");
+        } */
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="inside">
+         
+        </div>
+    </div>
+</body>
+
+<script>
+
+    async function fetchdata(){
+        try {
+            let response=await fetch("https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-tech-products");
+        response=await response.json();
+        displaydata(response.data);
+        console.log(response)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    fetchdata();
+    let container=document.getElementById("inside");
+
+    function displaydata(data){
+//   container.innerHTML="";
+
+        data.forEach((element) => {
+            
+            let card=document.createElement("div");
+
+            let image=document.createElement("img");
+            let model=document.createElement("h2");
+            let price=document.createElement("h3");
+            let disc=document.createElement("p");
+            let Addcart=document.createElement("button");
+
+            image.src=element.img;
+            model.textContent=element.brand;
+            price.textContent=`Rs${element.price}`;
+            disc.textContent=element.details;
+            Addcart.textContent="Add to Cart"
+
+            card.append(image,model,price,disc,Addcart);
+            container.append(card);
+        });
+    }
+</script>
+</html>
