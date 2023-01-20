@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        #main{
+         
+        }
+    </style>
+</head>
+<body>
+    <a href="./index.html">Home</a>
+    <div id="main">
+        
+        <form action="">
+            <div class="single-input">
+                <input id="fname" type="text" placeholder="First_Name" required>
+            </div>
+            <div class="single-input">
+               <input id="lname" type="text" placeholder="Last_Name" required> 
+            </div>
+            <div class="single-input">
+                <input type="email"  id="email" placeholder="email" required>
+            </div>
+            <div class="single-input">
+                <input type="number" id="num" placeholder="Enter Mobile No" required>
+            </div>
+            <div class="single-input">
+                <input type="password" placeholder="Enter Password" id="pass" required>
+            </div>
+            <div class="single-input">
+                <input type="password" placeholder="Confirm Password" id="cpass" required>
+            </div>
+            <div class="single-input"> <button>submit</button></div>
+            <div class="accnthave">
+                <a href="">Forget Password</a>
+                <a href="./signIn.html">Have a account please Login</a>
+                <a href="./index.html">Home Page</a>
+            </div>
+
+        </form>
+    </div>
+</body>
+<script>
+
+    // let data=JSON.parse(localStorage.getItem("data"))||[]
+    let formel=document.querySelector("form");
+    formel.addEventListener("submit",(e)=>{
+
+
+      e.preventDefault();
+
+    //   data.forEach((element) => {
+        
+          let fname=document.getElementById("fname").value;
+          let lname=document.getElementById("lname").value;
+          let email=document.getElementById("email").value;
+          let num=document.getElementById("num").value;
+      let pass=document.getElementById("pass").value;
+      let cpass=document.getElementById("cpass").value;
+    
+    //  let obj={
+    //     fname:fname,
+    //     lname:lname,
+    //     email:email,
+    //     num:num,
+    //     pass:pass,
+    //     cpass:cpass,
+    // }
+
+    // data= data.push(obj)
+    // localStorage.setItem("data",JSON.stringify(obj));
+
+      localStorage.setItem("First_Name",JSON.stringify(fname));
+      localStorage.setItem("Last_Name",JSON.stringify(lname));
+      localStorage.setItem("Email",JSON.stringify(email));
+      localStorage.setItem("Number",JSON.stringify(num));
+      localStorage.setItem("Password",JSON.stringify(pass));
+      localStorage.setItem("Confirm_Password",JSON.stringify(cpass));
+
+      if(fname=="" && lname=="" && email =="" && num=="" && pass=="" && cpass==""){
+        alert(  "Oops!..",
+            "input field has no value",
+            "error")
+      }
+      else{
+        if(pass.length>=6 && pass.length<=20){
+            if(pass!=cpass){
+              alert(  "Oops..!",
+                    "Password Not Matching")
+            }
+            else{
+              alert(    "Good Job",
+                    "Register Successfull")
+                setTimeout(()=>{
+                    window.location.href="index.html"
+                },5000)
+            }
+        }
+        else{
+            alert( "Oops...!",
+            "Password min 6 length",
+            "error")
+        }
+    }
+});  
+    // }); 
+
+</script>
+</html>

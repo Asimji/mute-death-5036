@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phones</title>
+    <title>Only On falsyApple</title>
     <link rel="stylesheet" href="./css_files/Only on Apple.css">
 </head>
 <body>
@@ -22,7 +22,10 @@
             <option value="Mobile">Mobile</option>
             <option value="Speakers">Speaker</option>
         </select>
-        <input type="text"  id="mytext" placeholder="Product" >
+        <form id="form">
+           <input type="text"  id="mytext" placeholder="product" >
+            <input type="submit" value="Search" id="search"/>
+        </form>
     </div>
 
     <div id="box">
@@ -48,6 +51,30 @@
     }
     console.log(check)
     fetchdata();
+
+//search 
+
+let formel=document.querySelector("form");
+
+formel.addEventListener("submit",(e)=>{
+    e.preventDefault();
+
+    let searchparam=formel.product.value;
+
+    let filtered=check.filter((element)=>{
+        if(element.category.toUpperCase().includes(searchparam.toUpperCase())==true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    })
+    displaydata(filtered)
+
+})
+
+
+
     let container=document.getElementById("inside");
 
 let filterel=document.getElementById("filter");

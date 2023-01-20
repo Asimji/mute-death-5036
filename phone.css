@@ -1,0 +1,21 @@
+
+
+
+
+#main div{
+   border: 2px solid red;
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+   gap: 20px;
+}
+#inside{
+    width: 600px;
+    height: 800px;
+}
+#inside div{
+    width: 400px;
+    height: 600px;
+}
+#inside div img{
+    width: 100%;
+}

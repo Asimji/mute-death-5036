@@ -5,13 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phones</title>
-    <style>
-        /* #main{
-            background-image: url("https://rukminim1.flixcart.com/image/416/416/xif0q/mobile/9/e/e/-original-imaghx9q5rvcdghy.jpeg?q=70");
-        } */
-    </style>
+  <link rel="stylesheet" href="./css_files/phone.css">
 </head>
 <body>
+
+    
+
+    <form id="form">
+        <input type="text"  id="mytext" placeholder="product" >
+         <input type="submit" value="Search" id="search"/>
+     </form>
     <div id="main">
         <div id="inside">
          
@@ -21,21 +24,25 @@
 
 <script>
 
+
+
     async function fetchdata(){
         try {
-            let response=await fetch("https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-tech-products");
-        response=await response.json();
-        displaydata(response.data);
-        console.log(response)
+            let response=await fetch("https://63c8fe9e320a0c4c953e6509.mockapi.io/Phones");
+
+        let data=await response.json();
+
+        displaydata(data)
         } catch (error) {
             console.log(error);
         }
     }
     fetchdata();
+    
     let container=document.getElementById("inside");
 
     function displaydata(data){
-//   container.innerHTML="";
+  container.innerHTML="";
 
         data.forEach((element) => {
             
@@ -44,16 +51,18 @@
             let image=document.createElement("img");
             let model=document.createElement("h2");
             let price=document.createElement("h3");
-            let disc=document.createElement("p");
+            let description=document.createElement("p");
             let Addcart=document.createElement("button");
+            
 
-            image.src=element.img;
-            model.textContent=element.brand;
-            price.textContent=`Rs${element.price}`;
-            disc.textContent=element.details;
+            image.src=element.image;
+            model.textContent=element.model;
+            price.textContent=element.price;
+           description.textContent=element.description;
             Addcart.textContent="Add to Cart"
+            
 
-            card.append(image,model,price,disc,Addcart);
+            card.append(image,model,price,description,Addcart);
             container.append(card);
         });
     }
