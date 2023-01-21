@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phones</title>
-  <link rel="stylesheet" href="./css_files/phone.css">
+    <title>Tablets</title>
+  <link rel="stylesheet" href="./css_files/tablet.css">
 </head>
 <body>
     <div id="head">
         <img src="./photo-1603812188201-1e6e13ad6cbb.jpg" alt="">
         <a href="./index.html" target="_blank">Home</a>
-        <a href="./tablet.html" target="_blank">Tablets</a>
+        <a href="./phone.html" target="_blank">Phones</a>
         <a href="./laptop.html" target="_blank">Laptops</a>
         <a href="./Accessory.html" target="_blank">Accessories</a>
-        <a href="./cart.html" target="_blank">Cart</a>
+        <a href="./cart.html" >Cart</a>
         <a href="" target="_blank">Support</a>
         <a href="./signIn.html" target="_blank">SignIn</a>
     </div>
@@ -32,22 +32,23 @@
 
 <script>
 
+
+
     async function fetchdata(){
         try {
-            let response=await fetch("https://63c8fe9e320a0c4c953e6509.mockapi.io/tablet");
+            let response=await fetch("https://63c8fe9e320a0c4c953e6509.mockapi.io/Phones");
 
         let data=await response.json();
 
-        displaydata(data);
+        displaydata(data)
         } catch (error) {
             console.log(error);
         }
     }
     fetchdata();
+    let tabletdata=JSON.parse(localStorage.getItem("cart"))||[]
     
     let container=document.getElementById("inside");
-
-    let phonedata=JSON.parse(localStorage.getItem("cart"))||[]
 
     function displaydata(data){
   container.innerHTML="";
@@ -68,26 +69,26 @@
             price.textContent=`Rs ${element.price}`;
            description.textContent=element.description;
             Addcart.textContent="Add to Cart"
-            
+
             Addcart.addEventListener("click",()=>{
                 if(dublicate(element)){
                     alert("Product already Present")
                 }
                 else{
-                    alert("Product added")
-                    phonedata.push({...element,quantity:1})
-              localStorage.setItem("cart",JSON.stringify(phonedata));
+                    alert("Product Added");
+                    tabletdata.push({...element,quantity:1});
+                    localStorage.setItem("cart",JSON.stringify(tabletdata));
                 }
             })
+            
 
             card.append(image,model,price,description,Addcart);
             container.append(card);
         });
-
     }
     function dublicate(element){
-        for(let i=0;i<phonedata.length;i++){
-            if(phonedata[i].description==element.description){
+        for(let i=0;i<tabletdata.length;i++){
+            if(tabletdata[i].description==element.description){
                 return true;
             }
         }

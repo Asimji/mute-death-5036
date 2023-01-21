@@ -70,3 +70,7 @@
     h2{
         text-align: center;
     }
+    .newbtn{
+        /* border: 2px solid red; */
+        display: flex;
+    }

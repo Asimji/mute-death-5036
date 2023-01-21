@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="./css_files/cart.css">
+</head>
+<body>
+    <div id="head">
+        <img src="./photo-1603812188201-1e6e13ad6cbb.jpg" alt="">
+        <a href="./index.html" target="_blank">Home</a>
+        <a href="./phone.html" target="_blank">Phones</a>
+        <a href="./tablet.html" target="_blank">Tablets</a>
+        <a href="./Accessory.html" target="_blank">Accessories</a>
+        <a href="" target="_blank">Support</a>
+        <a href="./signIn.html" target="_blank">SignIn</a>
+    </div>
+
+
+    <h2>Total Amount: Rs <span id="total-cart"></span></h2>
+
+    <div id="box">
+        <div id="inside">
+            <!-- append data -->
+        </div>
+    </div>
+</body>
+<script>
+
+
+
+
+ let cartdata=JSON.parse(localStorage.getItem("cart"))||[];
+
+ let container=document.getElementById("inside");
+
+ displaydata(cartdata);
+
+ 
+
+ function displaydata(data){
+  container.innerHTML="";
+
+        data.forEach((element) => {
+            
+            let card=document.createElement("div");
+
+            let image=document.createElement("img");
+            let model=document.createElement("h2");
+            let price=document.createElement("h3");
+            let description=document.createElement("p");
+
+            let btndiv=document.createElement("div");
+            btndiv.className="newbtn"
+           
+            let incr=document.createElement("button");
+            let quantity=document.createElement("p")
+            let decr=document.createElement("button")
+            let Delete=document.createElement("button");
+
+            image.src=element.image;
+            model.textContent=element.model;
+            price.textContent=`Rs ${element.price}`;
+            description.textContent=element.details;
+
+
+            incr.textContent="+";
+
+            incr.addEventListener("click",()=>{
+                element.quantity++;
+                localStorage.setItem("cart",JSON.stringify(data));
+                displaydata(data);
+            })
+
+            decr.textContent="-";
+
+            decr.addEventListener("click",()=>{
+                if(element.quantity>1){
+                    element.quantity--;
+                    localStorage.setItem("cart",JSON.stringify(data));
+                    displaydata(data);
+                }
+            })
+
+            quantity.textContent=element.quantity;
+            Delete.textContent="Delete"
+
+            Delete.addEventListener("click",()=>{
+               data=data.filter((ele)=>{
+                return ele.id!==element.id;
+               })
+               localStorage.setItem("cart",JSON.stringify(data));
+               displaydata(data)
+            })
+          
+            
+
+         
+          btndiv.append(decr,quantity,incr,Delete)
+            card.append(image,model,price,description,btndiv);
+            container.append(card);
+
+           
+        });
+
+        let total=document.getElementById("total-cart");
+        
+        let sum=0
+        for(let i=0;i<cartdata.length;i++){
+            sum+=cartdata[i].quantity * cartdata[i].price;
+        }
+        total.textContent=sum;
+     
+
+    }
+</script>
+</html>
