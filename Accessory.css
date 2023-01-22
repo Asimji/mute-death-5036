@@ -1,0 +1,79 @@
+
+/* *{
+    background-color: black;
+} */
+
+#head{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-between;
+    margin:0 30px 30px 30px;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    position: sticky;
+    top: 0px;
+    text-decoration: none;
+    height: 50px;
+    background-color: rgb(35, 12, 56);
+    
+    
+}
+#head img{
+    /* border: 2px solid red; */
+    width: 50px;
+    height: 40px;
+    background-color: black;
+    color: rgb(26, 26, 206);
+    /* border:2px solid red; */
+}
+#head a{
+    text-decoration: none;
+    font-size: 12px;
+    color: rgb(46, 46, 233);
+}
+#box{
+/*     
+    border: 2px solid red ; */
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#inside{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+}
+#inside>div{
+    width: 200px;
+    /* border: 2px solid red ; */
+    padding-left: 20px;
+    color: rgb(115, 115, 235);
+}
+img{
+    width: 100%;
+    height: 200px;
+    
+}
+button{
+    color: rgb(115, 115, 235);
+    border-color: rgb(214, 90, 90);
+    border-radius: 3px;
+    display: block;
+    margin: auto;
+}
+h2{
+    text-align: center;
+}
+#filter{
+    color: rgb(115, 115, 235);
+}
+form{
+    color: rgb(115, 115, 235);
+}
+#search{
+    color: rgb(115, 115, 235);
+    
+}

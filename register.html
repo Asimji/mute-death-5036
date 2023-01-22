@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        *{
+            /* background: blue; */
+            padding: 0;
+            margin: 0;
+            /* box-sizing: border-box; */
+        }
+        #first{
+            margin: 0;
+            height: 550px;
+            /* border: 2px red solid; */
+            /* background:grey; */
+            background-image: url("https://fdn2.gsmarena.com/vv/pics/lenovo/lenovo-tab-extreme-2.jpg");
+            
+        }
+
+        #main{
+            background-color: #fff;
+            background-image: url("https://fdn.gsmarena.com/imgroot/reviews/22/apple-iphone-14-pro-max/lifestyle/-1024w2/gsmarena_003.jpg");
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+         /* border: 2px solid red; */
+         height: 70vh;
+         width: 500px;
+         margin: auto;
+         margin-top: 80px;
+         padding:50px 0 0 50px ;
+        }
+        .single-input{
+            margin: 20px 0px;
+            font-size: 17px;
+           
+        }
+        input{
+            font-size: 17px;
+        }
+        button{
+           width: 100px;
+           font-size: 18px;
+           margin-top: 10px;
+          
+        }
+        .accnthave{
+       /* border: 2px solid red; */
+       height: 40px;
+       padding-top: 30px;
+       margin-right: 20px;
+       font-weight: bold;
+       
+      
+        }
+        .accnthave a{
+            margin: 20px 20px 0 0;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="first">
+
+        <div id="main">
+            
+            <form action="">
+                <div class="single-input">
+                    <input id="fname" type="text" placeholder="First_Name" required>
+                </div>
+            <div class="single-input">
+               <input id="lname" type="text" placeholder="Last_Name" required> 
+            </div>
+            <div class="single-input">
+                <input type="email"  id="email" placeholder="email" required>
+            </div>
+            <div class="single-input">
+                <input type="number" id="num" placeholder="Enter Mobile No" required>
+            </div>
+            <div class="single-input">
+                <input type="password" placeholder="Enter Password" id="password" required>
+            </div>
+            <div class="single-input">
+                <input type="password" placeholder="Confirm Password" id="cpass" required>
+            </div>
+            <div class="single-input"> <button>submit</button></div>
+            <div class="accnthave">
+                <a href="">Forget Password</a>
+                <a href="./signIn.html" target="_blank">Have a account please Login</a>
+                <a href="./index.html" target="_blank">Home Page</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
+<script>
+let formel=document.querySelector("form");
+// let name=document.getElementById("name")
+
+let Data=JSON.parse(localStorage.getItem("formData"))||[]
+
+formel.addEventListener("submit",(e)=>{
+e.preventDefault();
+
+let obj={
+  fname:formel.fname.value,
+  lname:formel.lname.value,
+  email:formel.email.value,
+  number:formel.num.value,
+  password:formel.password.value,
+  cpassword:formel.cpass.value,
+}
+let exist = Data.length && 
+        JSON.parse(localStorage.getItem('formData')).some(data => 
+            data.fname == fname 
+        );
+if(!exist){
+
+  Data.push(obj);
+  localStorage.setItem("formData",JSON.stringify(Data));
+  alert("Account Created")
+  window.location.href="./index.html"
+}
+else{
+  alert("Dublicate found")
+}
+
+
+})
+
+</script>
+</html>

@@ -1,0 +1,261 @@
+*{
+    /* background-color: black; */
+    /* font-family:Arial, Helvetica, sans-serif; */
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+html,body{
+    overflow-x: hidden;
+    height: 100%;
+}
+
+#sidebarMenu{
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    margin-top: 60px;
+    background: #d4dee7;
+    transform: translateX(-250px);
+    transition: transform 250ms ease-in-out;
+}
+#openSidebarMenu:checked ~ #sidebarMenu{
+    transform: translateX(0);
+}
+.menu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+.menu li{
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+.menu li a{
+    color: rgb(92, 84, 84);
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 20px;
+}
+.sidebarIconToggle{
+    /* background: #fff; */
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    z-index: 20;
+    top: 22px;
+    left: 15px;
+    cursor: pointer;
+
+}
+.spinner {
+height: 3px;
+background: #fff;
+transition: all 0.3s;
+}
+.spinner.middle,.spinner.bottom{
+    margin-top: 3px;
+}
+#openSidebarMenu:checked ~ .sidebarIconToggle > .spinner.middle{
+  opacity: 0;
+}
+#openSidebarMenu:checked ~ .sidebarIconToggle > .spinner.top{
+  transform: rotate(135deg);
+  margin-top: 8px;
+}
+#openSidebarMenu:checked ~ .sidebarIconToggle > .spinner.bottom{
+ transform: rotate(-135deg);
+ margin-top: -9px;
+}
+
+
+/* header start */
+#head{
+    /* border: 2px solid red; */
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    z-index: 10;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    /* margin:60px 30px 30px 30px; */
+    align-items: center;
+    padding: 10px 50px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    position: sticky;
+    top: 0px;
+    text-decoration: none;
+    height: 50px;
+    background: #2e86de;
+    
+}
+#head img{
+    /* border: 2px solid red; */
+    width: 50px;
+    height: 40px;
+    background-color: black;
+    color: rgb(80, 80, 233);
+    font-weight: bold;
+    /* border:2px solid red; */
+}
+ .linkon{
+    text-decoration: none;
+    font-size: 12px;
+    color: #fff;
+    font-weight: bold;
+}
+/* header end */
+
+#mid{
+    /* display: block; */
+    /* margin-left: 80px; */
+    /* border:2px solid red; */
+    /* height: 500px; */
+}
+#mid img{
+    width: 100%;
+}
+#phone{
+    /* border:2px solid red; */
+}
+/* #phone img{
+    width:100%
+} */
+
+
+
+
+#table{
+    /* border:2px solid red; */
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-top: 30px;
+    gap: 10px;
+    margin-bottom: 80px;
+
+}
+#table div{
+    width: 700px;
+}
+
+#table div img{
+    width: 100%;
+}
+
+
+/* footer start */
+
+#footer{
+    /* border: 2px solid red; */
+    /* background-color: grey; */
+    height: 400px;
+    background-image: url("https://fdn.gsmarena.com/imgroot/reviews/22/apple-iphone-14-pro-max/lifestyle/-1024w2/gsmarena_033.jpg");
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#content{
+    color: rgb(80, 80, 233);
+    font-weight: bold;
+    /* border: 2px solid red; */
+    width: 1300px;
+     height: 250px;
+
+     margin-bottom: 100px;
+     margin-left: 20px;
+     
+     
+    /* margin: auto; */
+      
+    /* font-size: 0.9cm; */
+    border-collapse: collapse;
+}
+
+
+#content thead tr{
+    text-align: left;
+    font-weight: bold;
+    /* border: 2px solid red; */
+    height: 100px;
+   margin: 20px;
+   
+}
+#content>tbody>tr {
+    /* border: 2px solid blue; */
+ width: 50px;
+    font-size:10px ;
+    font-weight: bold;
+    color: rgb(143, 143, 228);
+    text-decoration: underline;
+
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.swiper{
+    width: 800px;
+    height: 600px;
+
+}
+.swiper-slide img{
+    width: 100%;
+}
+
+@media screen and (min-width:700px) and (max-width:1000px){
+
+    #head img{
+        display: none;
+    }
+    #head img{
+        display: none;
+    }
+    #content>thead>tr>th:nth-child(5),:nth-child(6){
+        display: none;
+    }
+
+    
+}
+@media screen and (max-width:700px){
+
+    #head img{
+        display: none;
+    }
+    #head a:nth-child(1),a:nth-child(7),a:nth-child(3),a:nth-child(4),a:nth-child(5),a:nth-child(6){
+  display: none;
+    }
+
+    #container{
+        display: none;
+    }
+    #table{
+        /* border:2px solid red; */
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        margin-top: 30px;
+        gap: 10px;
+        margin-bottom: 80px;
+    
+    }
+    #content>thead>tr>th:nth-child(4),:nth-child(5),:nth-child(6){
+        display: none;
+    }
+
+    #footer{
+        width: 600px;
+    }
+}
