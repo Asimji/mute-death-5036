@@ -19,7 +19,7 @@
     </div>
 
 
-    <h2>Total Amount: Rs <span id="total-cart"></span></h2>
+    <h2>Total Amount: Rs <span id="total-cart"></span> Distinct Product: <span id="checktotalquant"></span></h2>
 
     <div id="box">
         <div id="inside">
@@ -28,23 +28,22 @@
     </div>
 </body>
 <script>
-
-
-
-
- let cartdata=JSON.parse(localStorage.getItem("cart"))||[];
-
- let container=document.getElementById("inside");
-
- displaydata(cartdata);
-
+  
+    let cartdata=JSON.parse(localStorage.getItem("cart"))||[];
+    let container=document.getElementById("inside");
  
-
+    displaydata(cartdata);
+    
  function displaydata(data){
-  container.innerHTML="";
+
+    let total=document.getElementById("total-cart");
+
+    container.innerHTML=""
 
         data.forEach((element) => {
             
+           
+
             let card=document.createElement("div");
 
             let image=document.createElement("img");
@@ -65,47 +64,48 @@
             price.textContent=`Rs ${element.price}`;
             description.textContent=element.details;
 
+            let num=document.getElementById("checktotalquant");
+
 
             incr.textContent="+";
-
             incr.addEventListener("click",()=>{
                 element.quantity++;
+               
                 localStorage.setItem("cart",JSON.stringify(data));
                 displaydata(data);
+                
             })
 
             decr.textContent="-";
-
-            decr.addEventListener("click",()=>{
+           decr.addEventListener("click",()=>{
                 if(element.quantity>1){
-                    element.quantity--;
-                    localStorage.setItem("cart",JSON.stringify(data));
+                    element.quantity--; 
+                    localStorage.setItem("cart",JSON.stringify(data)); 
                     displaydata(data);
+                    
                 }
             })
 
             quantity.textContent=element.quantity;
             Delete.textContent="Delete"
-
             Delete.addEventListener("click",()=>{
                data=data.filter((ele)=>{
                 return ele.id!==element.id;
                })
-               localStorage.setItem("cart",JSON.stringify(data));
+               localStorage.setItem("cart",JSON.stringify(data)) 
                displaydata(data)
             })
           
-            
+           
+            num.textContent=data.length;
 
-         
           btndiv.append(decr,quantity,incr,Delete)
             card.append(image,model,price,description,btndiv);
             container.append(card);
-
            
         });
 
-        let total=document.getElementById("total-cart");
+        
         
         let sum=0
         for(let i=0;i<cartdata.length;i++){
@@ -115,5 +115,7 @@
      
 
     }
+
+   
 </script>
 </html>

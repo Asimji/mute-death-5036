@@ -45,9 +45,9 @@
     }
     fetchdata();
     
-    let container=document.getElementById("inside");
-
+    
     let phonedata=JSON.parse(localStorage.getItem("cart"))||[]
+    let container=document.getElementById("inside");
 
     function displaydata(data){
   container.innerHTML="";

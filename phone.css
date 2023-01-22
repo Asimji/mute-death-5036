@@ -70,3 +70,36 @@
     h2{
         text-align: center;
     }
+
+
+    @media screen and (min-width:500px) and (max-width:1000px){
+
+        #head img{
+            display: none;
+        }
+
+        #inside{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            
+        }
+    }
+    @media screen and (max-width:500px){
+
+        #head img{
+            display: none;
+        }
+        #head a:nth-child(1),a:nth-child(3),a:nth-child(4),a:nth-child(5),a:nth-child(6){
+      display: none;
+        }
+
+        #inside{
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            gap: 15px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            
+        }
+    }

@@ -130,6 +130,8 @@ transition: all 0.3s;
 } */
 
 
+
+
 #table{
     /* border:2px solid red; */
     display: grid;
@@ -146,15 +148,30 @@ transition: all 0.3s;
 #table div img{
     width: 100%;
 }
+
+
+/* footer start */
+
+#footer{
+    /* border: 2px solid red; */
+    /* background-color: grey; */
+    height: 400px;
+    background-image: url("https://fdn.gsmarena.com/imgroot/reviews/22/apple-iphone-14-pro-max/lifestyle/-1024w2/gsmarena_033.jpg");
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+}
+
 #content{
     color: rgb(80, 80, 233);
     font-weight: bold;
     /* border: 2px solid red; */
     width: 1300px;
-     height: 200px;
+     height: 250px;
 
      margin-bottom: 100px;
-     margin-left: 50px;
+     margin-left: 20px;
+     
      
     /* margin: auto; */
       
@@ -197,4 +214,48 @@ transition: all 0.3s;
 }
 .swiper-slide img{
     width: 100%;
+}
+
+@media screen and (min-width:700px) and (max-width:1000px){
+
+    #head img{
+        display: none;
+    }
+    #head img{
+        display: none;
+    }
+    #content>thead>tr>th:nth-child(5),:nth-child(6){
+        display: none;
+    }
+
+    
+}
+@media screen and (max-width:700px){
+
+    #head img{
+        display: none;
+    }
+    #head a:nth-child(1),a:nth-child(7),a:nth-child(3),a:nth-child(4),a:nth-child(5),a:nth-child(6){
+  display: none;
+    }
+
+    #container{
+        display: none;
+    }
+    #table{
+        /* border:2px solid red; */
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        margin-top: 30px;
+        gap: 10px;
+        margin-bottom: 80px;
+    
+    }
+    #content>thead>tr>th:nth-child(4),:nth-child(5),:nth-child(6){
+        display: none;
+    }
+
+    #footer{
+        width: 600px;
+    }
 }
